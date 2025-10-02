@@ -23,6 +23,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button id="theme-toggle">
+        🌙 Dark Mode
+    </button>
+
+    
   </header>
 
   <!-- About -->
@@ -218,7 +223,28 @@
 
 
   <footer>
-    <p>© 2025 Sana Iftikhar | QA & Automation Portfolio</p>
+    <p>© 2025 Sana Iftikhar </p>
   </footer>
+
+  <script>
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      toggleBtn.textContent = "☀️ Light Mode";
+      toggleBtn.style.background = "#f4f4f4";
+      toggleBtn.style.color = "#222";
+      toggleBtn.style.border = "1px solid #999";
+    } else {
+      toggleBtn.textContent = "🌙 Dark Mode";
+      toggleBtn.style.background = "#333";
+      toggleBtn.style.color = "#fff";
+      toggleBtn.style.border = "1px solid #444";
+    }
+  });
+</script>
+
 </body>
 </html>
