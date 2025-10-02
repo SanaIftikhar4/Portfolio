@@ -1,150 +1,172 @@
-/* ===== Base Styles ===== */
-body {
-  font-family: Arial, sans-serif;
+/* ===== Global Styles ===== */
+* {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  background: #fff;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
   color: #222;
-  transition: background 0.4s, color 0.4s;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-weight: bold;
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
 }
 
-section {
-  padding: 2rem 0;
-  width: 80%;
-  margin: auto;
-}
-
-/* ===== Header & Navigation ===== */
+/* ===== Navbar ===== */
 header {
-  background: #222;
+  background: #111;
   color: #fff;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav {
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
-  margin: auto;
+}
+
+header h1 {
+  font-size: 1.8rem;
 }
 
 nav ul {
-  display: flex;
   list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
+  display: flex;
+  gap: 1.5rem;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  color: #ffcc00;
 }
 
-/* ===== Theme Toggle Button ===== */
-#theme-toggle {
-  margin-left: 20px;
+/* ===== Dark Mode Button ===== */
+#darkModeToggle {
   padding: 8px 16px;
-  border: 1px solid #444;
   border-radius: 20px;
+  border: none;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+body.dark-mode #darkModeToggle {
   background: #333;
   color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: all 0.3s ease;
 }
 
-#theme-toggle:hover {
-  background: #555;
-  border-color: #666;
+/* ===== Section Layout ===== */
+section {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode section {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
 }
 
 /* ===== About Section ===== */
-#about {
-  background: #fff;
-  padding: 3rem 0;
-  border-bottom: 1px solid #eee;
+#about h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #111;
 }
 
-#about p {
-  margin-bottom: 1rem;
+body.dark-mode #about h2 {
+  color: #fff;
 }
 
 /* ===== Skills Section ===== */
-#skills {
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 8px;
-}
-
 #skills ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
   list-style: none;
-  padding: 0;
 }
 
-#skills li::before {
-  content: "✔ ";
-  color: #555;
+#skills li {
+  padding: 8px;
+  border-left: 4px solid #ffcc00;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+body.dark-mode #skills li {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Resume Button ===== */
+.resume-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #333;
+  color: #fff;
   font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: #ffcc00;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+body.dark-mode .resume-btn {
+  background: #ffcc00;
+  color: #111;
+}
+
+body.dark-mode .resume-btn:hover {
+  background: #fff;
+  color: #111;
 }
 
 /* ===== Projects Section ===== */
-#projects {
-  margin-top: 2rem;
-}
-
-.project {
-  background: #fff;
+.project-card {
+  padding: 1rem;
   margin: 1rem 0;
-  padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s;
 }
 
-.project:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+body.dark-mode .project-card {
+  background: #2a2a2a;
 }
 
-.project h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* ===== Experience Section ===== */
-#experience {
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1rem;
   margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-.job {
-  margin-bottom: 2rem;
+body.dark-mode footer {
+  color: #bbb;
 }
-
-.job h3 {
-  margin-bottom: 0.3rem;
-}
-
 /* ===== Certifications Section ===== */
 #certifications {
   margin-top: 2rem;
@@ -163,105 +185,12 @@ nav ul li a:hover {
   height: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
 }
 
 .cert-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* ===== Resume Section ===== */
-.resume-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #333;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  font-size: 16px;
-}
-
-.resume-btn:hover {
-  background: #555;
-  transform: translateY(-2px);
-}
-
-/* ===== Contact Section ===== */
-#contact {
-  margin-top: 2rem;
-}
-
-#contact p {
-  font-size: 1.1em;
-  margin: 10px 0;
-}
-
-#contact i {
-  margin-right: 10px;
-  color: #333;
-  font-size: 1.2em;
-}
-
-#contact a {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-  color: #555;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: #fff;
-}
-
-/* ===== Dark Mode ===== */
-.dark-mode {
-  background: #121212;
-  color: #eee;
-}
-
-.dark-mode header {
-  background: #000;
-}
-
-.dark-mode nav ul li a {
-  color: #fff;
-}
-
-.dark-mode #skills {
-  background: #1a1a1a;
-}
-
-.dark-mode .project {
-  background: #1a1a1a;
-  box-shadow: 0 2px 6px rgba(255,255,255,0.08);
-}
-
-.dark-mode .resume-btn {
-  background: #eee;
-  color: #111;
-}
-
-.dark-mode .resume-btn:hover {
-  background: #ccc;
-}
-
-.dark-mode #contact a {
-  color: #eee;
-}
-
-.dark-mode #contact a:hover {
-  color: #aaa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
